@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
-// import SingleColumn from './single_column';
+import SingleCard from './single_card';
 
 class ColumnsList extends Component{
     constructor(props){
@@ -12,7 +12,7 @@ class ColumnsList extends Component{
             return (
                 <div key={column.columnId} className="single-column">
                     <h3>{column.title}{column.columnId}</h3>
-                    <ul className="cards-list">{this.renderCards(column)}</ul>
+                    <ul className="cards-list"><SingleCard column={column} /></ul>
                     <span
                         className="add-card"
                         onClick={() => this.props.addCard(column.columnId)}
@@ -21,11 +21,7 @@ class ColumnsList extends Component{
             )
         });
     }
-    renderCards(column){
-        return column.cards.map((card) =>{
-            return <li className="cards-list-item">card.value</li>
-        });
-    }
+
     render(){
         return(
             <div>
@@ -38,5 +34,4 @@ class ColumnsList extends Component{
 function mapStateToProps(state) {
     return {columns: state.columns}
 }
-
 export default connect(mapStateToProps, actions)(ColumnsList);
