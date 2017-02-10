@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+th{
+  text-align: center;
+  padding: 5px 5px;
+}
+td{
+  text-align: center;
+  padding: 5px 10px;
+}
+td:first-child{
+  font-weight: bold;
+}
+.active{
+  background-color: #D3D3D3;
+}
+.clear_button{
+  margin-top: 20px;
+  margin-right: 50px;
+}
+.save_button{
+  margin-top: 20px;
+}
+.full-day{
+  cursor: pointer;
+  background-color: #696969;
+}
