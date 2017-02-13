@@ -12,20 +12,25 @@ class ActiveCell extends Component {
         shedule[date].map((time) => {
             start = time.bt;
             end = time.et + 1;
-        });
-        for (let initTime = 0; initTime < 1380; initTime = initTime + 60) {
-            if (initTime >= start && initTime < end) {
-                td = <td className="active" key={initTime}></td>;
-            } else {
-                td = <td className="non-active" key={initTime}></td>
+            for (let initTime = 0; (initTime < end && initTime < 1380); initTime += 60) {
+                if (start >= 0 && initTime >= start) {
+                    td = <td className="active" key={initTime}></td>;
+                } else {
+                    td = <td className="non-active" key={initTime}></td>
+                }
+                allCells.push(td);
             }
-            allCells.push(td);
+        });
+        for (let allCellsLength = 0; allCellsLength < 23; allCellsLength++) {
+            if (allCells.length < 24) {
+                td = <td className="non-active" key={allCellsLength}></td>
+                allCells.push(td);
+            }
         }
         return allCells.map((cell) => {
             return cell;
         });
     }
-
     render() {
         const { fillDayTime } = this.props.actions;
         const { clearDayTime } = this.props.actions;
