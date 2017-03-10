@@ -10,8 +10,11 @@ class App extends Component {
             <div className="container">
                 <br/>
                 <div className="row">
-                    <ItemList items={items} hasErrored={hasErrored} isLoading={hasErrored}
-                              itemsFetchData={itemsFetchData}/>
+                    <ItemList items={items}
+                              hasErrored={hasErrored}
+                              isLoading={isLoading}
+                              itemsFetchData={itemsFetchData}
+                    />
                 </div>
             </div>
         );

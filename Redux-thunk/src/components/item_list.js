@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class ItemList extends Component {
+class ItemList extends Component {
+    constructor(props){
+        super(props);
+    }
     componentDidMount() {
         this.props.itemsFetchData('http://5826ed963900d612000138bd.mockapi.io/items');
     }
@@ -25,3 +28,11 @@ export default class ItemList extends Component {
         );
     }
 }
+
+ItemList.propTypes = {
+    items: React.PropTypes.array,
+    hasErrored: PropTypes.bool,
+    isLoading: PropTypes.bool,
+    itemsFetchData: PropTypes.func
+};
+export default ItemList;
