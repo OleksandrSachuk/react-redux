@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { itemsFetchData } from '../actions/index';
-class ItemList extends Component {
+
+export default class ItemList extends Component {
     componentDidMount() {
-        this.props.fetchData('http://5826ed963900d612000138bd.mockapi.io/items');
+        this.props.itemsFetchData('http://5826ed963900d612000138bd.mockapi.io/items');
     }
     render() {
         if (this.props.hasErrored) {
@@ -26,16 +25,3 @@ class ItemList extends Component {
         );
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        items: state.items,
-        hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
-    };
-};
-const mapDispatchToProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(itemsFetchData(url))
-    };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
